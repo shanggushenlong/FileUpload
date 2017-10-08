@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<users> 
+  <user>
+    <username>aa</username>
+    <password>123456</password>
+    <othername>11</othername>
+    <email>qw@qq.com</email>
+  </user>
+</users>
