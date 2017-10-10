@@ -27,8 +27,21 @@ import com.sun.java_cup.internal.runtime.virtual_parse_stack;
 @WebServlet("/Upload1Servlet")
 public class Upload1Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
+	
+	/*
+	 1.文件下载的中文名乱码问题:
+			请求得到要下载的文件名称
+					String filename = request.getParameter("filename")
+			当文件下载的时候,通过超链接下载,超链接下载通过get方式请求下载,这个时候如果要下载的文件名是中文名,则会出现乱码的问题
+			解决方案:  filename = new String(filename.getBytes("iso8859-1"),"utf-8");
+	 2.下载的时候显示中文乱码的问题:
+	 		首先判断下载的是什么浏览器:
+	 				String agent = request.getHeader("user-agent");
+	 		IE浏览器:要求必须是 utf-8 编码
+	 		firefox:要求必须是 base64 编码
+	 		
+	 		filename = URLEncode.encode(filename, "utf-8");   设置编码问题
+	*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//1.创建DiskFileItemFactory
