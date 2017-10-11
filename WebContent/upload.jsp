@@ -4,14 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>单文件上传</title>
+<title>Insert title here</title>
 </head>
 <body>
 	
-	<form action="${ pageContext.request.contextPath }/Upload1Servlet" method="post" encType="multipart/form-data">
-		<input type="text" name="context"><br>
-		<input type="file" name="f"><br>
-		<input type="submit" value="上传"><br>
-	</form>
+	<%--upload上传页面注意三点
+		1). method = post   --->> 由于post支持大文件上传,而get只能小文件上传
+		2). encType = "multiPart/form-data"
+		3). <input type="file" name="f">
+	 --%>
+	 
+	 <form action="${ pageContext.request.contextPath }/uploadServlet" method="post" enctype="multipart/form-data">
+	 	<input type="file" name="f"><br>
+	 	描述:<input type="text" name="description"><br>
+	 	<input type="submit" value="提交"> 
+	 </form>
+
 </body>
 </html>
