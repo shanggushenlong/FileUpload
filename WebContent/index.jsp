@@ -10,5 +10,6 @@
 	
 	<%--文件上传首页 --%>
 	<a href="${ pageContext.request.contextPath }/upload.jsp">文件上传</a>
+	<a href="${ pageContext.request.contextPath }/ShowDownloadServlet">下载</a>
 </body>
 </html>
